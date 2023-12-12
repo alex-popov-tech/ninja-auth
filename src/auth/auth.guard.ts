@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { JwtService } from '@nestjs/jwt';
-import { IS_PUBLIC_KEY } from '@src/utils';
+import { IS_PUBLIC_KEY } from '../utils';
 import { Reflector } from '@nestjs/core';
 
 function extractAuthToken(request: Request): string | undefined {

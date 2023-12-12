@@ -6,11 +6,11 @@ import {
   Req,
   ValidationPipe,
 } from '@nestjs/common';
-import { Public } from '@src/utils';
+import { Public } from '../utils';
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/signin.dto';
 import { SignUpDto } from './dto/signup.dto';
-import { UsersService } from '@src/users/users.service';
+import { UsersService } from '../users/users.service';
 
 @Controller('auth')
 export class AuthController {
