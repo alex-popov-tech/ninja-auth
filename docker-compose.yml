@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  # app:
+  #   build: .
+  #   ports:
+  #     - '3000:3000'
+  #   depends_on:
+  #     - redis
+  #     - postgres
+  #   environment:
+  #     - DATABASE_URL=postgresql://userway:userway@postgres/userway
+  #     - REDIS_HOST=redis
+  #     - REDIS_PORT=6379
+  #     - REDIS_PASSWORD=redis
+  #     - JWT_EXPIRATION=3600
+  #     - SECRET=megashawerma
+  postgres:
+    image: postgres:latest
+    ports:
+      - '5432:5432' # Map host port 5432 to container port 5432
+    environment:
+      POSTGRES_USER: userway # Replace with your desired username
+      POSTGRES_PASSWORD: userway # Replace with your desired password
+      POSTGRES_DB: userway # Replace with your desired database name
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistent volume for Postgres
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379' # Map host port 6379 to container port 6379
+    volumes:
+      - redis_data:/data # Persistent volume for Redis
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
